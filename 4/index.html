@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 4</title>
+</head>
+<body>
+
+    <p id="contador">0</p>
+
+    <button id="aumentar">Aumentar</button>
+    <button id="zerar">Zerar</button>
+
+    <script>
+        let numero = 0;
+
+        const contador = document.querySelector("#contador");
+        const botaoAumentar = document.querySelector("#aumentar");
+        const botaoZerar = document.querySelector("#zerar");
+
+        botaoAumentar.addEventListener("click", function() {
+            numero++;
+            contador.textContent = numero;
+        });
+
+        botaoZerar.addEventListener("click", function() {
+            numero = 0;
+            contador.textContent = numero;
+        });
+    </script>
+
+</body>
+</html>

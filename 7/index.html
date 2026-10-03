@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 7</title>
+</head>
+<body>
+
+    <!-- A -->
+
+    <h1>Gravity Falls</h1>
+
+    <img id="personagem"
+         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9-gD9trxsgKNEP1BNyUI9d2Eu75fFhsQ4CnW-IqKbAg&s=10"
+         width="300">
+
+    <p id="fala">Passe o mouse sobre mim!</p>
+
+    <button id="trocar">Trocar imagem</button>
+
+    <script>
+    
+        // B
+
+        const personagem = document.querySelector("#personagem");
+        const fala = document.querySelector("#fala");
+        const botao = document.querySelector("#trocar");
+
+        personagem.addEventListener("mouseenter", function() {
+            fala.textContent = "Você começou a interagir comigo!";
+        });
+
+        personagem.addEventListener("mouseleave", function() {
+            fala.textContent = "Você saiu de perto!";
+        });
+
+        personagem.addEventListener("mousemove", function() {
+            fala.textContent = "Você está mexendo no mouse!";
+        });
+
+        personagem.addEventListener("click", function() {
+            fala.textContent = "Você clicou em mim!";
+        });
+
+        // C
+
+        botao.addEventListener("click", function() {
+            personagem.src =
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEqUPdOADNDZMt3LzdE1j-xX6m_fSePBF4D_LvY1-kmA&s=10";
+        });
+
+    </script>
+
+</body>
+</html>

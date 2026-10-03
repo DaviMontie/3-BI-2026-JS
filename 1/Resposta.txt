@@ -1,0 +1,5 @@
+JavaScript é usado no Frontend para tornar páginas web interativas e dinâmicas.
+
+Com JavaScript é possível alterar conteúdos da página, responder a cliques do usuário, validar formulários, modificar estilos, criar animações e atualizar informações sem precisar recarregar toda a página.
+
+Enquanto o HTML define a estrutura da página e o CSS define sua aparência, o JavaScript controla comportamentos e interações.

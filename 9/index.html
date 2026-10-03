@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 9</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+            transition: 0.5s;
+        }
+
+        #sabor {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+        }
+
+        #mensagem {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #botao {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .alto-contraste {
+            transition: 0.5s;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="sabor" placeholder="Digite um sabor">
+
+    <p id="mensagem"></p>
+
+    <div id="botao">Alto Contraste</div>
+
+    <script>
+        const input = document.querySelector("#sabor");
+        const mensagem = document.querySelector("#mensagem");
+        const botao = document.querySelector("#botao");
+
+        input.addEventListener("input", function() {
+
+            const texto = input.value.toLowerCase();
+
+            if (texto.length > 3) {
+
+                if (texto === "chocolate") {
+                    mensagem.textContent =
+                        "Eu amo sorvete de chocolate!";
+
+                } else if (texto === "flocos") {
+                    mensagem.textContent =
+                        "Ahh, mas chocolate é o meu favorito...";
+
+                } else {
+                    mensagem.textContent =
+                        "Ahh, eu esperava um sabor de sorvete...";
+                }
+            }
+        });
+
+        botao.addEventListener("click", function() {
+            document.body.classList.toggle("alto-contraste");
+        });
+
+    </script>
+
+</body>
+</html>

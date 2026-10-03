@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 8</title>
+</head>
+<body>
+
+    <input type="text" id="sabor" placeholder="Digite um sabor">
+
+    <p id="mensagem"></p>
+
+    <script>
+        const input = document.querySelector("#sabor");
+        const mensagem = document.querySelector("#mensagem");
+
+        input.addEventListener("input", function() {
+
+            const texto = input.value.toLowerCase();
+
+            if (texto.length > 3) {
+
+                if (texto === "chocolate") {
+                    mensagem.textContent =
+                        "Eu amo sorvete de chocolate!";
+
+                } else if (texto === "flocos") {
+                    mensagem.textContent =
+                        "Ahh, mas chocolate é o meu favorito...";
+
+                } else {
+                    mensagem.textContent =
+                        "Ahh, eu esperava um sabor de sorvete...";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

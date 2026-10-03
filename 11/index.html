@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #MostrarSenha{
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="nome" placeholder="Digite seu nome">
+    <input type="email" id="email" placeholder="Digite seu email">
+    <input type="password" id="senha" placeholder="Digite sua senha">
+    <input type="password" id="confirmarSenha" placeholder="Confirme sua senha">
+    <p class="textoConfirmacao">Texto de Confirmação</p>
+    <div id="MostrarSenha">Mostrar Senha</div>
+
+    <script>
+        const nomeInput = document.querySelector("#nome");
+        const emailInput = document.querySelector("#email");
+        const senhaInput = document.querySelector("#senha");
+        const confirmarSenhaInput = document.querySelector("#confirmarSenha");
+        const textoConfirmacao = document.querySelector(".textoConfirmacao");
+        const mostrarSenha = document.querySelector("#MostrarSenha");
+
+        nomeInput.addEventListener("input", function() {
+            const nome = nomeInput.value;
+            if (nome.length < 3) {
+                textoConfirmacao.textContent = `Nome Muito Curto`;
+            } else {
+                textoConfirmacao.textContent = `Nome Válido`;
+            }
+        });
+
+        emailInput.addEventListener("input", function() {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (!emailRegex.test(emailInput.value)) {
+                textoConfirmacao.textContent = `Email Inválido`;
+            } else {
+                textoConfirmacao.textContent = `Email Válido`;
+            }
+        });
+
+        senhaInput.addEventListener("input", function() {
+            const senhaRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+            if (!senhaRegex.test(senhaInput.value)) {
+                textoConfirmacao.textContent =
+                    "Senha deve ter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial";
+            } else {
+                textoConfirmacao.textContent = "Senha Válida";
+            }
+        });
+
+        confirmarSenhaInput.addEventListener("input", function() {
+            if (confirmarSenhaInput.value !== senhaInput.value) {
+                textoConfirmacao.textContent = `Senhas não coincidem`;
+            } else {
+                textoConfirmacao.textContent = `Senhas coincidem`;
+            }
+        });
+
+        mostrarSenha.addEventListener("click", function() {
+            if (senhaInput.type === "password") {
+                senhaInput.type = "text";
+                confirmarSenhaInput.type = "text";
+                mostrarSenha.textContent = "Ocultar Senha";
+            } else {
+                senhaInput.type = "password";
+                confirmarSenhaInput.type = "password";
+                mostrarSenha.textContent = "Mostrar Senha";
+            }
+        });
+    </script>
+</body>
+</html>
